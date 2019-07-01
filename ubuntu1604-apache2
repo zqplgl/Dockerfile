@@ -1,0 +1,19 @@
+FROM ubuntu:16.04
+WORKDIR  /root
+ENV LANG C.UTF-8
+RUN apt-get update
+RUN apt-get install -y apt-transport-https 
+#ADD ./ubuntu1604-localsources.list /etc/apt/sources.list
+ADD ./ubuntu1604-sources.list /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install -y vim
+RUN apt-get install -y net-tools
+RUN apt-get install -y iputils-ping
+RUN apt-get install -y openssh-server
+RUN apt-get install -y apache2
+EXPOSE 80
+RUN echo "/etc/init.d/apache2 start && /bin/bash" > /usr/bin/start-apache2
+RUN chmod 755 /usr/bin/start-apache2
+CMD /usr/bin/start-apache2
+
+

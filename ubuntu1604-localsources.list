@@ -1,0 +1,4 @@
+deb http://192.168.2.2:8080/ubuntu/ xenial main restricted universe multiverse
+deb http://192.168.2.2:8080/ubuntu/ xenial-updates main restricted universe multiverse
+deb http://192.168.2.2:8080/ubuntu/ xenial-backports main restricted universe multiverse
+deb http://192.168.2.2:8080/ubuntu/ xenial-security main restricted universe multiverse

@@ -1,0 +1,7 @@
+docker run -d -p 3306:3306 --name mysql --hostname mysql \
+    -e MYSQL_ROOT_PASSWORD=123456 \
+    -e LANG=C.UTF-8 \
+    -v /home/zqp/.mysql/conf:/etc/mysql/conf.d \
+    -v /home/zqp/.mysql/logs:/logs \
+    -v /home/zqp/.mysql/data:/var/lib/mysql \
+    mysql:5.7
