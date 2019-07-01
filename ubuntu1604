@@ -1,14 +1,9 @@
 FROM ubuntu:16.04
 WORKDIR  /root
 ENV LANG C.UTF-8
-RUN apt-get update
-RUN apt-get install -y apt-transport-https 
-ADD ./ubuntu1604-sources.list /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get install -y vim
-RUN apt-get install -y net-tools
-RUN apt-get install -y iputils-ping
-RUN apt-get install -y openssh-server
-CMD /bin/bash
+ADD ./ubuntu1604-localsources.list /etc/apt/sources.list
+RUN apt-get update && apt-get install -y apt-transport-https vim net-tools inetutils-ping openssh-server && \
+echo "service ssh start && /bin/bash" > /usr/bin/start-ubuntu && chmod 755 /usr/bin/start-ubuntu
+CMD /usr/bin/start-ubuntu
 
 
